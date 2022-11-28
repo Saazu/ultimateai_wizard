@@ -1,5 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles, Grid } from "@material-ui/core";
+import PropTypes from "prop-types";
+function IntentCard({
+  name,
+  description,
+  trainingData,
+  addToSelected,
+  removeFromSelected,
+  id,
+}) {
+  const classes = useStyles();
+  const [selected, setSelected] = useState(false);
+
+  function clickIntent() {
+    if (selected) {
+      removeFromSelected(id);
+    } else {
+      addToSelected(id);
+    }
+    setSelected((selected) => !selected);
+  }
+
+  return (
+    <Grid
+      role="button"
+      onClick={clickIntent}
+      container
+      className={classes.container}
+    >
+      <Grid item xs={6}>
+        <p className={classes.name}>Name: {name}</p>
+        <p className={classes.description}>{description}</p>
+      </Grid>
+      <Grid item xs={6}>
+        <p className={classes.name}>Examples: </p>
+        <p className={classes.description}>
+          {trainingData?.expressions[0].text} or{" "}
+          {trainingData?.expressions[1].text}
+        </p>
+      </Grid>
+    </Grid>
+  );
+}
+
+IntentCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  addToSelected: PropTypes.func.isRequired,
+  removeFromSelected: PropTypes.func.isRequired,
+  trainingData: PropTypes.object.isRequired,
+};
+
+export default IntentCard;
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -23,30 +75,3 @@ const useStyles = makeStyles((theme) => ({
     color: "#6B7B8A",
   },
 }));
-
-function IntentCard({ name, description, trainingData, onClickHandler }) {
-  const classes = useStyles();
-
-  return (
-    <Grid
-      role="button"
-      onClick={onClickHandler}
-      container
-      className={classes.container}
-    >
-      <Grid item xs={6}>
-        <p className={classes.name}>Name: {name}</p>
-        <p className={classes.description}>{description}</p>
-      </Grid>
-      <Grid item xs={6}>
-        <p className={classes.name}>Examples: </p>
-        <p className={classes.description}>
-          {trainingData?.expressions[0].text} or{" "}
-          {trainingData?.expressions[1].text}
-        </p>
-      </Grid>
-    </Grid>
-  );
-}
-
-export default IntentCard;

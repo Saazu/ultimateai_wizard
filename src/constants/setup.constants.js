@@ -19,9 +19,24 @@ export const wizardSteps = [
   },
 ];
 
-export const wizardPageDescription = {
-  title: "Welcome to Intentional AI!",
-  description: "This is our friendly set up wizard.",
-  primaryContent:
-    "This wizard will aid you to set up your first conversational agent. This will be the first step in your new customer satisfaction journey.",
-};
+export const wizardPageDescription = [
+  {
+    step: 1,
+    title: "Welcome to Intentional AI!",
+    description: "This is our friendly set up wizard.",
+    primaryContent:
+      "This wizard will aid you to set up your first conversational agent. This will be the first step in your new customer satisfaction journey.",
+  },
+  {
+    step: 2,
+    title: "Intentional AI Setup Wizard",
+    description: "This is our stage 2 of the setup wizard",
+    primaryContent: "Additional content and explanations go here",
+  },
+  {
+    step: 3,
+    title: "Intentional AI Setup Wizard",
+    description: "This is our stage 3 of the setup wizard",
+    primaryContent: "Additional content and explanations go here",
+  },
+];

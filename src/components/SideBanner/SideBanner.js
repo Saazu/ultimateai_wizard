@@ -3,29 +3,6 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core";
 import PageDescription from "../PageDescription/PageDescription";
 
-const useStyles = makeStyles((theme) => ({
-  container: {},
-  title: {
-    lineHeight: "28px",
-  },
-  description: {
-    lineHeight: "24px",
-  },
-  primaryContent: {
-    lineHeight: "20px",
-  },
-  secondaryContent: {
-    lineHeight: "20px",
-  },
-  image: {
-    position: "fixed",
-    bottom: "4rem",
-    left: "28%",
-    height: "12rem",
-    width: "6rem",
-  },
-}));
-
 function SideBanner({
   title,
   description,
@@ -62,3 +39,26 @@ SideBanner.propTypes = {
 };
 
 export default SideBanner;
+
+const useStyles = makeStyles((theme) => ({
+  container: {},
+  title: {
+    lineHeight: "28px",
+  },
+  description: {
+    lineHeight: "24px",
+  },
+  primaryContent: {
+    lineHeight: "20px",
+  },
+  secondaryContent: {
+    lineHeight: "20px",
+  },
+  image: {
+    position: "fixed",
+    bottom: "4rem",
+    left: "28%",
+    height: "12rem",
+    width: "6rem",
+  },
+}));
