@@ -88,6 +88,7 @@ function SelectIntents({ stepIndex, saveWizardStepSelection }) {
 }
 
 SelectIntents.propTypes = {
+  stepIndex: PropTypes.number.isRequired,
   saveWizardStepSelection: PropTypes.func.isRequired,
 };
 

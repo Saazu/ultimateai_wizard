@@ -3,7 +3,7 @@ import { makeStyles, Grid } from "@material-ui/core";
 import PageDescription from "../PageDescription/PageDescription";
 import { wizardPageDescription } from "../../constants/setup.constants";
 import SelectIntents from "../WizardSteps/SelectIntents";
-import WizardLineStepper from "../Stepper/HorizontalLineStepper";
+import WizardLineStepper from "../Stepper/HorizontalLinearStepper";
 import { wizardSteps } from "../../constants/setup.constants";
 import useWizard from "../../hooks/useWizard";
 import SideBanner from "../SideBanner/SideBanner";
@@ -62,7 +62,7 @@ function WelcomeWizard() {
           <div className={classes.stepper}>
             <WizardLineStepper
               activeStep={activeStep}
-              wizardSteps={setupSteps}
+              progressSteps={setupSteps}
               handleBack={goBack}
               handleNext={goForward}
               handleReset={resetWizard}

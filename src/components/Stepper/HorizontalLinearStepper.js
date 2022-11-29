@@ -32,14 +32,14 @@ function getSteps(steps) {
 }
 
 function HorizontalLinearStepper({
-  wizardSteps,
+  progressSteps,
   activeStep,
   handleNext,
   handleBack,
   handleReset,
 }) {
   const classes = useStyles();
-  const steps = getSteps(wizardSteps);
+  const steps = getSteps(progressSteps);
 
   return (
     <div className={classes.root}>
@@ -84,7 +84,7 @@ function HorizontalLinearStepper({
   );
 }
 HorizontalLinearStepper.propTypes = {
-  wizardSteps: PropTypes.array.isRequired,
+  progressSteps: PropTypes.array.isRequired,
   activeStep: PropTypes.number.isRequired,
   handleNext: PropTypes.func.isRequired,
   handleBack: PropTypes.func.isRequired,
