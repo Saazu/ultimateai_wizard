@@ -52,7 +52,7 @@ function HorizontalLinearStepper({
       </Stepper>
 
       <div className={classes.buttonGroup}>
-        {activeStep === steps.length ? (
+        {activeStep === steps.length - 1 ? (
           <div>
             <Button className={classes.button} onClick={handleReset}>
               Reset

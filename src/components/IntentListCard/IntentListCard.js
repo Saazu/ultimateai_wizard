@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles, Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
 function IntentCard({
+  id,
   name,
   description,
-  trainingData,
+  examples,
   addToSelected,
   removeFromSelected,
-  id,
+  selected,
 }) {
   const classes = useStyles();
-  const [selected, setSelected] = useState(false);
 
   function clickIntent() {
     if (selected) {
@@ -18,7 +18,6 @@ function IntentCard({
     } else {
       addToSelected(id);
     }
-    setSelected((selected) => !selected);
   }
 
   return (
@@ -26,7 +25,9 @@ function IntentCard({
       role="button"
       onClick={clickIntent}
       container
-      className={classes.container}
+      className={
+        selected ? classes.selectedContainer : classes.unSelectedcontainer
+      }
     >
       <Grid item xs={6}>
         <p className={classes.name}>Name: {name}</p>
@@ -35,8 +36,7 @@ function IntentCard({
       <Grid item xs={6}>
         <p className={classes.name}>Examples: </p>
         <p className={classes.description}>
-          {trainingData?.expressions[0].text} or{" "}
-          {trainingData?.expressions[1].text}
+          {examples[0].text} or {examples[1].text}
         </p>
       </Grid>
     </Grid>
@@ -48,13 +48,13 @@ IntentCard.propTypes = {
   description: PropTypes.string.isRequired,
   addToSelected: PropTypes.func.isRequired,
   removeFromSelected: PropTypes.func.isRequired,
-  trainingData: PropTypes.object.isRequired,
+  examples: PropTypes.array.isRequired,
 };
 
 export default IntentCard;
 
 const useStyles = makeStyles((theme) => ({
-  container: {
+  unSelectedcontainer: {
     boxShadow: "0px 0px 4px -1px rgba(0, 0, 0, 0.2)",
     borderRadius: "6px",
     padding: "0.2rem 1rem",
@@ -62,6 +62,16 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       cursor: "pointer",
     },
+  },
+  selectedContainer: {
+    boxShadow: "0px 0px 4px -1px rgba(0, 0, 0, 0.2)",
+    borderRadius: "6px",
+    padding: "0.2rem 1rem",
+    margin: "1rem",
+    "&:hover": {
+      cursor: "pointer",
+    },
+    backgroundColor: "#E8E8E8",
   },
   name: {
     padding: "0rem 1rem",
@@ -72,6 +82,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "0rem 1rem",
     fontSize: "12px",
     fontWeight: 400,
-    color: "#6B7B8A",
+    color: "#667685",
   },
 }));

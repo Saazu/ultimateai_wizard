@@ -2,8 +2,8 @@ import { useState } from "react";
 
 /**
  *
- * @param {['loading', 'error', '']} loadState : initial loadingstate
- * @returns
+ * @param {Array} wizardSteps - Data about wizard setps
+ * @returns {Object}
  */
 function useWizard(wizardSteps) {
   const [activeStep, setActiveStep] = useState(0);
@@ -32,9 +32,11 @@ function useWizard(wizardSteps) {
     goForward,
     goBack,
     resetWizard,
-    activeStep,
     saveWizardStepSelection,
+    activeStep,
     answers,
+    setupSteps: wizardSteps,
+    numWizardSteps: wizardSteps.length,
   };
 }
 

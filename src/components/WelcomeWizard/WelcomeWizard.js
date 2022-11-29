@@ -16,7 +16,11 @@ function WelcomeWizard() {
     resetWizard,
     activeStep,
     saveWizardStepSelection,
-  } = useWizard();
+    answers,
+    setupSteps,
+  } = useWizard(wizardSteps);
+
+  console.log(answers);
 
   return (
     <div>
@@ -38,20 +42,27 @@ function WelcomeWizard() {
         </Grid>
 
         <Grid item xs={12} sm={12} md={7} className={classes.wizardContainer}>
-          <div className={classes.title}>
+          <div className={classes.pageHeader}>
             <PageDescription
               title={wizardPageDescription[activeStep].title}
               description={wizardPageDescription[activeStep].description}
               classes={classes}
             />
           </div>
-          {activeStep === 0 && (
-            <SelectIntents saveWizardStepSelection={saveWizardStepSelection} />
-          )}
+
+          <div>
+            {activeStep === 0 && (
+              <SelectIntents
+                stepIndex={activeStep}
+                saveWizardStepSelection={saveWizardStepSelection}
+              />
+            )}
+          </div>
+
           <div className={classes.stepper}>
             <WizardLineStepper
               activeStep={activeStep}
-              wizardSteps={wizardSteps}
+              wizardSteps={setupSteps}
               handleBack={goBack}
               handleNext={goForward}
               handleReset={resetWizard}
@@ -66,18 +77,24 @@ function WelcomeWizard() {
 export default WelcomeWizard;
 
 const useStyles = makeStyles((theme) => ({
-  title: {
+  pageHeader: {
     display: "none",
     [theme.breakpoints.down("sm")]: {
       display: "block",
     },
+  },
+  titleText: {
+    margin: "0rem 1rem",
+  },
+  description: {
+    margin: "0rem 1rem",
   },
   stepper: {
     bottom: "0%",
     position: "sticky",
     backgroundColor: "white",
     [theme.breakpoints.down("sm")]: {
-      bottom: "5%",
+      bottom: "2%",
     },
   },
   sideBannerContainer: {

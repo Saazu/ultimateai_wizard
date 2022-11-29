@@ -10,7 +10,7 @@ function PageDescription({
 }) {
   return (
     <section>
-      <h2 className={classes.title}>{title}</h2>
+      <h2 className={classes.titleText}>{title}</h2>
       <h3 className={classes.description}>{description}</h3>
       <p className={classes.primaryContent}>{primaryContent}</p>
       <p className={classes.secondaryContent}>{secondaryContent}</p>
