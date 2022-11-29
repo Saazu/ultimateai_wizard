@@ -1,23 +1,17 @@
-# ultimate.ai Frontend-Challenge
-
-Hello! We're excited about your interest in joining the Ultimate team. We also really appreciate you taking the time to
-go through this task, so if you have any questions regarding this task, please don't hesitate to reach out to us!
-
-We would like you to spend not more than a few hours on this exercise. We are primarily interested in getting a feel to
-how you structure your code, and that the solution fulfills the basic requirements below. It doesn't have to be perfect!
-
-## Some Background Information
+# ultimate.ai
 
 Most of our clients use our AI as a customer service bot in chats on their websites.
 When one of their users writes a message in the chat, our AI analyzes that message to understand the user's intent and
 gives the appropriate reply, for example:
 
 ---
+
 > User: "Hello"
 
-*AI understands that this is a Greeting*
+_AI understands that this is a Greeting_
 
 > AI: "Hello :) How can I help you?"
+
 ---
 
 In order to understand what the user wants, our AI is trained to recognize different intents.
@@ -55,9 +49,9 @@ Each item in the JSON contains the following:
 - `name`: The name of that intent.
 - `description`: A string describing what the intent is used for.
 - `trainingData`: The training data that is used to train the AI. It contains:
-    - `expressionCount`: the total number of training expressions for this intent
-    - `expressions`: An array with three example expressions for this intent, each with a unique `id` and a `text` field
-      with the expression.
+  - `expressionCount`: the total number of training expressions for this intent
+  - `expressions`: An array with three example expressions for this intent, each with a unique `id` and a `text` field
+    with the expression.
 - `reply`: The reply that the bot will give when the intent is recognized, containing again a unique `id` and a `text`
   field with the actual reply.
 
@@ -67,7 +61,7 @@ to use in their AI bot.**
 **This page would be one step of a wizard in the above-mentioned bot creation process
 (No need to build the actual wizard of course ;)).**
 
-We did not include a design or mockups, so you are free to solve that challenge in the way you see appropriate. The 
+We did not include a design or mockups, so you are free to solve that challenge in the way you see appropriate. The
 design should be functional. It doesn't have to be very pretty. It's more important for us to see
 well-structured code and flawless functionality than a pretty UI.
 
