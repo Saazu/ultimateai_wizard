@@ -16,11 +16,8 @@ function WelcomeWizard() {
     resetWizard,
     activeStep,
     saveWizardStepSelection,
-    answers,
     setupSteps,
   } = useWizard(wizardSteps);
-
-  console.log(answers);
 
   return (
     <div>
